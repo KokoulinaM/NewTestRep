@@ -15,6 +15,7 @@ try:
 except json.JSONDecodeError as e:
     pass
 
+
 def decor(strTest):
 
     def my_decor(dec_foo):
@@ -53,7 +54,7 @@ def address_gen(typef=''):
     while True:
         rstreet = rend.choice(streets)
         yield country + ', ' + city + ', ' + rstreet + ', ' + str(rend.randint(1, 255)) + rend.choice(lit) +\
-            '-' + str(rend.randint(1, 2000))
+            '-' + str(rend.randint(1, 2000)) + ' ' + typef
 
 
 if __name__ == '__main__':
@@ -62,7 +63,7 @@ if __name__ == '__main__':
     lit = ('', 'a')
     check_street()
 
-    adr=address_gen()
+    adr = address_gen()
     for i in range(25):
         print(next(adr))
 
